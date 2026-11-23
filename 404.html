@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Navbar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="navbar" role="banner">
+      <div class="navbar__container">
+        <a href="#" class="navbar__brand" aria-label="My Cool Website Homepage">
+          My Site
+        </a>
+
+        <button
+          class="navbar__toggle"
+          id="navbarToggle"
+          aria-label="Toggle Navigation Menu"
+          aria-controls="navbarMenu"
+          aria-expanded="false"
+        >
+          MENU
+        </button>
+      </div>
+
+      <nav
+        id="navbarMenu"
+        class="navbar__menu"
+        role="navigation"
+        aria-labelledby="navbarToggle"
+      >
+        <ul class="navbar__list">
+          <li class="navbar__item">
+            <a href="/" class="navbar__link">Home </a>
+          </li>
+          <li class="navbar__item">
+            <a href="/about" class="navbar__link">About </a>
+          </li>
+          <li class="navbar__item">
+            <a href="/contact" class="navbar__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content">
+      <h1>404</h1>
+      <h1>Page Not Found</h1>
+      <li class="navbar__home">
+        <a href="/" class="navbar__link">Back Home </a>
+      </li>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbarToggle = document.getElementById("navbarToggle");
+        const navbarMenu = document.getElementById("navbarMenu");
+
+        if (navbarToggle && navbarMenu) {
+          navbarToggle.addEventListener("click", function () {
+            navbarMenu.classList.toggle("is-active");
+
+            const isExpanded = navbarMenu.classList.contains("is-active");
+            navbarToggle.setAttribute("aria-expanded", isExpanded);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
